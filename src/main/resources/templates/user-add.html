@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Добавить пользователя</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+
+
+<form action="#" th:action="@{/user-add}" th:object="${user}" method="post" class="alert mt-5">
+    <h4 class="text-center">заполните поля для добавления клиента </h4>
+    <div class="form-group container">
+        <label for="id">ID</label>
+        <input readonly type="text" class="form-control" th:field="*{id}" id="id" placeholder="ID">
+
+        <label for="firstName">Имя</label>
+        <input type="text" class="form-control" th:field="*{firstName}" id="firstName" required>
+
+        <label for="lastName">Фамилия</label>
+        <input type="text" class="form-control" th:field="*{lastName}" id="lastName" required>
+
+        <label for="email">емайл</label>
+        <input type="email" class="form-control" aria-describedby="emailHelp" th:field="*{email}" id="email">
+
+        <label for="email">Адресс</label>
+        <input type="text" class="form-control" th:field="*{address}" id="address">
+
+
+        <a class="btn  btn-secondary pull-left mt-5" href="users" role="button">Назад</a>
+        <input type="submit" class="btn btn-primary mt-5 " value="Сохранить">
+    </div>
+</form>
+
+</body>
+</html>

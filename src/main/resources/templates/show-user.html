@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Users</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+
+
+<div class="container pt-5">
+
+    <h1 class="text-center m-5">Информация о пользователе</h1>
+    <table class="table">
+        <thread>
+            <tr>
+                <th>ID</th>
+                <th>Имя</th>
+                <th>Фамилия</th>
+                <th>Адресс</th>
+                <th>Почта</th>
+            </tr>
+        </thread>
+        <tbody>
+        <tr th:each="el : ${user}">
+            <td th:text="${el.id}"></td>
+            <td th:text="${el.firstName}"></td>
+            <td th:text="${el.lastName}"></td>
+            <td th:text="${el.address}"></td>
+            <td th:text="${el.email}"></td>
+
+
+        </tr>
+        </tbody>
+    </table>
+
+    <a class="btn  btn-secondary pull-left mt-5" href="/users" role="button">Назад</a>
+</div>
+
+
+</body>
+
+</html>

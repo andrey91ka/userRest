@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Users</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+
+
+<div class="container pt-5">
+    <div th:switch="${users}" >
+        <h2 th:case="null">На данный момнет пользователей нет</h2>
+        <div th:case="*">
+            <h1 class="text-center m-5">USERS</h1>
+            <table class="table table-bordered" >
+                <thread >
+                    <tr>
+                        <th>Имя</th>
+                        <th>Фамилия</th>
+                    </tr>
+                </thread>
+                <tbody>
+                <tr th:each="user : ${users}">
+                    <td th:text="${user.firstName}"></td>
+                    <td th:text="${user.lastName}"></td>
+
+                    <td><a th:href="@{show-user/{id}(id=${user.id})}" class="btn btn-primary ">Посмотреть пользователя</a></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <a href="/user-add" class="btn btn-primary" role="button" aria-pressed="true">добавить пользователя </a>
+</div>
+
+
+</body>
+
+</html>
